@@ -183,7 +183,7 @@ Generator.prototype.askForModules = function askForModules() {
     }
 
     if (this.bootstrapModule) {
-      angMods.push("'ui-bootstrap'");
+      angMods.push("'ui.bootstrap'");
     }
 
     if (angMods.length) {
@@ -202,7 +202,7 @@ Generator.prototype.readIndex = function readIndex() {
 Generator.prototype.bootstrapFiles = function bootstrapFiles() {
   //var sass = this.compassBootstrap;
   var files = [];
-  var source = 'bower_components/bootstrap_wsi/';
+  var source = 'bower_components/bootstrap-wsi/';
 
   if (this.bootstrap) {
     files.push('dist/css/bootstrap.css');
