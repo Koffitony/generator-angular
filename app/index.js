@@ -151,6 +151,10 @@ Generator.prototype.askForModules = function askForModules() {
       value: 'routeModule',
       name: 'angular-route.js',
       checked: true
+    }, {
+      value: 'ui-bt-module',
+      name: 'ui-bootstrap.js',
+      checked: true
     }]
   }];
 
@@ -160,6 +164,7 @@ Generator.prototype.askForModules = function askForModules() {
     this.cookiesModule = hasMod('cookiesModule');
     this.sanitizeModule = hasMod('sanitizeModule');
     this.routeModule = hasMod('routeModule');
+    this.bootstrapModule = hasMod('ui-bt-module');
 
     var angMods = [];
 
@@ -175,6 +180,10 @@ Generator.prototype.askForModules = function askForModules() {
     }
     if (this.routeModule) {
       angMods.push("'ngRoute'");
+    }
+
+    if (this.bootstrapModule) {
+      angMods.push("'ui-bootstrap'");
     }
 
     if (angMods.length) {
@@ -193,29 +202,54 @@ Generator.prototype.readIndex = function readIndex() {
 Generator.prototype.bootstrapFiles = function bootstrapFiles() {
   //var sass = this.compassBootstrap;
   var files = [];
-  var source = 'styles/css/';
+  var source = 'bower_components/bootstrap_wsi/';
 
-  if (this.bootstrap && !sass) {
-    files.push('bootstrap.css');
+  if (this.bootstrap) {
+    files.push('dist/css/bootstrap.css');
     this.copy('fonts/glyphicons-halflings-regular.eot', 'app/fonts/glyphicons-halflings-regular.eot');
     this.copy('fonts/glyphicons-halflings-regular.ttf', 'app/fonts/glyphicons-halflings-regular.ttf');
     this.copy('fonts/glyphicons-halflings-regular.svg', 'app/fonts/glyphicons-halflings-regular.svg');
     this.copy('fonts/glyphicons-halflings-regular.woff', 'app/fonts/glyphicons-halflings-regular.woff');
+
+    //copy ui-bootstrap templates
+    this.copy('ui-bootstrap-templates/accordion/accordion-group.html', 'app/template/accordion/accordion-group.html');
+    this.copy('ui-bootstrap-templates/accordion/accordion.html', 'app/template/accordion/accordion.html');
+    this.copy('ui-bootstrap-templates/alert/alert.html', 'app/template/alert/alert.html');
+    this.copy('ui-bootstrap-templates/carousel/carousel.html', 'app/template/carousel/carousel.html');
+    this.copy('ui-bootstrap-templates/carousel/slide.html', 'app/template/carousel/slide.html');
+    this.copy('ui-bootstrap-templates/datepicker/datepicker.html', 'app/template/datepicker/datepicker.html');
+    this.copy('ui-bootstrap-templates/datepicker/popup.html', 'app/template/datepicker/popup.html');
+    this.copy('ui-bootstrap-templates/modal/backdrop.html', 'app/template/modal/backdrop.html');
+    this.copy('ui-bootstrap-templates/modal/window.html', 'app/template/modal/window.html');
+    this.copy('ui-bootstrap-templates/pagination/pagination.html', 'app/template/pagination/pagination.html');
+    this.copy('ui-bootstrap-templates/pagination/pager.html', 'app/template/pagination/pager.html');
+    this.copy('ui-bootstrap-templates/popover/popover.html', 'app/template/popover/popover.html');
+    this.copy('ui-bootstrap-templates/progressbar/progress.html', 'app/template/progressbar/progress.html');
+    this.copy('ui-bootstrap-templates/progressbar/bar.html', 'app/template/progressbar/bar.html');
+    this.copy('ui-bootstrap-templates/rating/rating.html', 'app/template/rating/rating.html');
+    this.copy('ui-bootstrap-templates/tabs/tab.html', 'app/template/tabs/tab.html');
+    this.copy('ui-bootstrap-templates/tabs/tabset-titles.html', 'app/template/tabs/tabset-titles.html');
+    this.copy('ui-bootstrap-templates/tabs/tabset.html', 'app/template/tabs/tabset.html');
+    this.copy('ui-bootstrap-templates/timepicker/timepicker.html', 'app/template/timepicker/timepicker.html');
+    this.copy('ui-bootstrap-templates/tooltip/tooltip-popup.html', 'app/template/tooltip/tooltip-popup.html');
+    this.copy('ui-bootstrap-templates/tooltip/tooltip-html-unsafe-popup.html', 'app/template/tooltip/tooltip-html-unsafe-popup.html');
+    this.copy('ui-bootstrap-templates/typeahead/typeahead-match.html', 'app/template/typeahead/typeahead-match.html');
+    this.copy('ui-bootstrap-templates/typeahead/typeahead-popup.html', 'app/template/typeahead/typeahead-popup.html');
   }
 
   //files.push('main.' + (sass ? 's' : '') + 'css');
-  files.push('main.css');
+  files.push('examples/worldskills-application/application.css');
 
-  files.forEach(function (file) {
-    this.copy(source + file, 'app/styles/' + file);
-  }.bind(this));
+  //files.forEach(function (file) {
+    //this.copy(source + file, 'app/styles/' + file);
+  //}.bind(this));
 
   this.indexFile = this.appendFiles({
     html: this.indexFile,
     fileType: 'css',
     optimizedPath: 'styles/main.css',
     sourceFileList: files.map(function (file) {
-      return 'styles/' + file.replace('.scss', '.css');
+      return source + file.replace('.scss', '.css');
     }),
     searchPath: ['.tmp', 'app']
   });
@@ -228,18 +262,20 @@ Generator.prototype.bootstrapJS = function bootstrapJS() {
 
   // Wire Twitter Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
-    'bower_components/bootstrap-wsi/js/affix.js',
-    'bower_components/bootstrap-wsi/js/alert.js',
-    'bower_components/bootstrap-wsi/js/button.js',
-    'bower_components/bootstrap-wsi/js/carousel.js',
-    'bower_components/bootstrap-wsi/js/transition.js',
-    'bower_components/bootstrap-wsi/js/collapse.js',
-    'bower_components/bootstrap-wsi/js/dropdown.js',
-    'bower_components/bootstrap-wsi/js/modal.js',
-    'bower_components/bootstrap-wsi/js/scrollspy.js',
-    'bower_components/bootstrap-wsi/js/tab.js',
-    'bower_components/bootstrap-wsi/js/tooltip.js',
-    'bower_components/bootstrap-wsi/js/popover.js'
+    'bower_components/angular-bootstrap/ui-bootstrap.js'
+    //'bower_components/bootstrap-wsi/js/affix.js',
+    //'bower_components/bootstrap-wsi/js/affix.js',
+    //'bower_components/bootstrap-wsi/js/alert.js',
+    //'bower_components/bootstrap-wsi/js/button.js',
+    //'bower_components/bootstrap-wsi/js/carousel.js',
+    //'bower_components/bootstrap-wsi/js/transition.js',
+    //'bower_components/bootstrap-wsi/js/collapse.js',
+    //'bower_components/bootstrap-wsi/js/dropdown.js',
+    //'bower_components/bootstrap-wsi/js/modal.js',
+    //'bower_components/bootstrap-wsi/js/scrollspy.js',
+    //'bower_components/bootstrap-wsi/js/tab.js',
+    //'bower_components/bootstrap-wsi/js/tooltip.js',
+    //'bower_components/bootstrap-wsi/js/popover.js'
   ]);
 };
 

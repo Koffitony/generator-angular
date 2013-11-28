@@ -42,10 +42,6 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
-      },<% } %><% if (compassBootstrap) { %>
-      compass: {
-        files: ['<%%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
       },<% } %>
       styles: {
         files: ['<%%= yeoman.app %>/styles/{,*/}*.css'],
@@ -175,34 +171,7 @@ module.exports = function (grunt) {
       }
     },<% } %>
 
-    <% if (compassBootstrap) { %>
-    // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
-      options: {
-        sassDir: '<%%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%%= yeoman.app %>/images',
-        javascriptsDir: '<%%= yeoman.app %>/scripts',
-        fontsDir: '<%%= yeoman.app %>/styles/fonts',
-        importPath: '<%%= yeoman.app %>/bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false
-      },
-      dist: {
-        options: {
-          generatedImagesDir: '<%%= yeoman.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          debugInfo: true
-        }
-      }
-    },<% } %>
+    
 
     // Renames files for browser caching purposes
     rev: {
@@ -334,18 +303,15 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [<% if (coffee) { %>
-        'coffee:dist',<% } %><% if (compassBootstrap) { %>
-        'compass:server',<% } %>
+        'coffee:dist',<% } %>
         'copy:styles'
       ],
       test: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compassBootstrap) { %>
-        'compass',<% } %>
+        'coffee',<% } %>
         'copy:styles'
       ],
       dist: [<% if (coffee) { %>
-        'coffee',<% } %><% if (compassBootstrap) { %>
-        'compass:dist',<% } %>
+        'coffee',<% } %>
         'copy:styles',
         'imagemin',
         'svgmin',
