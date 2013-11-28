@@ -110,9 +110,9 @@ Generator.prototype.askForBootstrap = function askForBootstrap() {
   this.prompt([{
     type: 'confirm',
     name: 'bootstrap',
-    message: 'Would you like to include Twitter Bootstrap?',
+    message: 'Would you like to include Twitter Bootstrap (WSI Version)?',
     default: true
-  }, {
+  }/*, {
     type: 'confirm',
     name: 'compassBootstrap',
     message: 'Would you like to use the SCSS version of Twitter Bootstrap with the Compass CSS Authoring Framework?',
@@ -120,9 +120,9 @@ Generator.prototype.askForBootstrap = function askForBootstrap() {
     when: function (props) {
       return props.bootstrap;
     }
-  }], function (props) {
+  }*/], function (props) {
     this.bootstrap = props.bootstrap;
-    this.compassBootstrap = props.compassBootstrap;
+   // this.compassBootstrap = props.compassBootstrap;
 
     cb();
   }.bind(this));
@@ -191,7 +191,7 @@ Generator.prototype.readIndex = function readIndex() {
 
 // Waiting a more flexible solution for #138
 Generator.prototype.bootstrapFiles = function bootstrapFiles() {
-  var sass = this.compassBootstrap;
+  //var sass = this.compassBootstrap;
   var files = [];
   var source = 'styles/' + ( sass ? 's' : '' ) + 'css/';
 
@@ -203,7 +203,8 @@ Generator.prototype.bootstrapFiles = function bootstrapFiles() {
     this.copy('fonts/glyphicons-halflings-regular.woff', 'app/fonts/glyphicons-halflings-regular.woff');
   }
 
-  files.push('main.' + (sass ? 's' : '') + 'css');
+  //files.push('main.' + (sass ? 's' : '') + 'css');
+  files.push('main.css');
 
   files.forEach(function (file) {
     this.copy(source + file, 'app/styles/' + file);
@@ -227,18 +228,18 @@ Generator.prototype.bootstrapJS = function bootstrapJS() {
 
   // Wire Twitter Bootstrap plugins
   this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
-    'bower_components/sass-bootstrap/js/affix.js',
-    'bower_components/sass-bootstrap/js/alert.js',
-    'bower_components/sass-bootstrap/js/button.js',
-    'bower_components/sass-bootstrap/js/carousel.js',
-    'bower_components/sass-bootstrap/js/transition.js',
-    'bower_components/sass-bootstrap/js/collapse.js',
-    'bower_components/sass-bootstrap/js/dropdown.js',
-    'bower_components/sass-bootstrap/js/modal.js',
-    'bower_components/sass-bootstrap/js/scrollspy.js',
-    'bower_components/sass-bootstrap/js/tab.js',
-    'bower_components/sass-bootstrap/js/tooltip.js',
-    'bower_components/sass-bootstrap/js/popover.js'
+    'bower_components/bootstrap-wsi/js/affix.js',
+    'bower_components/bootstrap-wsi/js/alert.js',
+    'bower_components/bootstrap-wsi/js/button.js',
+    'bower_components/bootstrap-wsi/js/carousel.js',
+    'bower_components/bootstrap-wsi/js/transition.js',
+    'bower_components/bootstrap-wsi/js/collapse.js',
+    'bower_components/bootstrap-wsi/js/dropdown.js',
+    'bower_components/bootstrap-wsi/js/modal.js',
+    'bower_components/bootstrap-wsi/js/scrollspy.js',
+    'bower_components/bootstrap-wsi/js/tab.js',
+    'bower_components/bootstrap-wsi/js/tooltip.js',
+    'bower_components/bootstrap-wsi/js/popover.js'
   ]);
 };
 
