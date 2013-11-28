@@ -193,7 +193,7 @@ Generator.prototype.readIndex = function readIndex() {
 Generator.prototype.bootstrapFiles = function bootstrapFiles() {
   //var sass = this.compassBootstrap;
   var files = [];
-  var source = 'styles/' + ( sass ? 's' : '' ) + 'css/';
+  var source = 'styles/css/';
 
   if (this.bootstrap && !sass) {
     files.push('bootstrap.css');
