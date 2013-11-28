@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-wsi",
-  "version": "0.6.0-rc.2",
+  "version": "0.6.1",
   "description": "WSI Specigic Yeoman generator for AngularJS",
   "keywords": [
     "yeoman-generator-wsi",
