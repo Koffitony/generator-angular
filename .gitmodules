@@ -1,0 +1,3 @@
+[submodule "app/templates/bootstrap-wsi"]
+	path = app/templates/bootstrap-wsi
+	url = git@github.com:worldskills/bootstrap.git
