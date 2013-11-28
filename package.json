@@ -1,9 +1,10 @@
 {
   "name": "generator-angular-wsi",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "WSI Specigic Yeoman generator for AngularJS",
   "keywords": [
     "yeoman-generator-wsi",
+    "yeoman-generator",
     "scaffold",
     "framework",
     "component",
