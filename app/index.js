@@ -53,15 +53,15 @@ var Generator = module.exports = function Generator(args, options) {
     args.push('--minsafe');
   }
 
-  this.hookFor('angular:common', {
+  this.hookFor('angular-wsi:common', {
     args: args
   });
 
-  this.hookFor('angular:main', {
+  this.hookFor('angular-wsi:main', {
     args: args
   });
 
-  this.hookFor('angular:controller', {
+  this.hookFor('angular-wsi:controller', {
     args: args
   });
 
@@ -84,6 +84,10 @@ var Generator = module.exports = function Generator(args, options) {
 
     if (this.routeModule) {
       enabledComponents.push('angular-route/angular-route.js');
+    }
+
+    if (this.bootstrapModule) {
+      enabledComponents.push('angular-bootstrap/ui-bootstrap.js');
     }
 
     this.invoke('karma:app', {
@@ -295,6 +299,10 @@ Generator.prototype.extraModules = function extraModules() {
 
   if (this.routeModule) {
     modules.push('bower_components/angular-route/angular-route.js');
+  }
+
+  if (this.bootstrapModule) {
+    modules.push('bower_components/angular-bootstrap/ui-bootstrap.js');
   }
 
   if (modules.length) {

@@ -1,15 +1,14 @@
-# AngularJS generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-angular.png?branch=master)](http://travis-ci.org/yeoman/generator-angular)
+# AngularJS generator for WSI projects
 
-Maintainer: [Brian Ford](https://github.com/btford)
-
+Based on Angular JS Generator [angular-seed](https://github.com/angular/angular-seed/)
 Based on [angular-seed](https://github.com/angular/angular-seed/)
 
 
 ## Usage
 
-Install `generator-angular`:
+Install `generator-angular-wsi`:
 ```
-npm install -g generator-angular
+npm install -g generator-angular-wsi
 ```
 
 Make a new directory, and `cd` into it:
@@ -19,7 +18,7 @@ mkdir my-new-project && cd $_
 
 Run `yo angular`, optionally passing an app name:
 ```
-yo angular [app-name]
+yo angular-wsi [app-name]
 ```
 
 Run `grunt` for building and `grunt serve` for preview
@@ -29,18 +28,18 @@ Run `grunt` for building and `grunt serve` for preview
 
 Available generators:
 
-* [angular](#app) (aka [angular:app](#app))
-* [angular:controller](#controller)
-* [angular:directive](#directive)
-* [angular:filter](#filter)
-* [angular:route](#route)
-* [angular:service](#service)
-* [angular:provider](#service)
-* [angular:factory](#service)
-* [angular:value](#service)
-* [angular:constant](#service)
-* [angular:decorator] (#decorator)
-* [angular:view](#view)
+* [angular-wsi](#app) (aka [angular-wsi:app](#app))
+* [angular-wsi:controller](#controller)
+* [angular-wsi:directive](#directive)
+* [angular-wsi:filter](#filter)
+* [angular-wsi:route](#route)
+* [angular-wsi:service](#service)
+* [angular-wsi:provider](#service)
+* [angular-wsi:factory](#service)
+* [angular-wsi:value](#service)
+* [angular-wsi:constant](#service)
+* [angular-wsi:decorator] (#decorator)
+* [angular-wsi:view](#view)
 
 **Note: Generators are to be run from the root directory of your app.**
 
@@ -57,7 +56,7 @@ Generates a controller and view, and configures a route in `app/scripts/app.js` 
 
 Example:
 ```bash
-yo angular:route myroute
+yo angular-wsi:route myroute
 ```
 
 Produces `app/scripts/controllers/myroute.js`:
@@ -77,7 +76,7 @@ Generates a controller in `app/scripts/controllers`.
 
 Example:
 ```bash
-yo angular:controller user
+yo angular-wsi:controller user
 ```
 
 Produces `app/scripts/controllers/user.js`:
@@ -91,7 +90,7 @@ Generates a directive in `app/scripts/directives`.
 
 Example:
 ```bash
-yo angular:directive myDirective
+yo angular-wsi:directive myDirective
 ```
 
 Produces `app/scripts/directives/myDirective.js`:
@@ -112,7 +111,7 @@ Generates a filter in `app/scripts/filters`.
 
 Example:
 ```bash
-yo angular:filter myFilter
+yo angular-wsi:filter myFilter
 ```
 
 Produces `app/scripts/filters/myFilter.js`:
@@ -129,7 +128,7 @@ Generates an HTML view file in `app/views`.
 
 Example:
 ```bash
-yo angular:view user
+yo angular-wsi:view user
 ```
 
 Produces `app/views/user.html`:
@@ -142,7 +141,7 @@ Generates an AngularJS service.
 
 Example:
 ```bash
-yo angular:service myService
+yo angular-wsi:service myService
 ```
 
 Produces `app/scripts/services/myService.js`:
@@ -152,14 +151,14 @@ angular.module('myMod').service('myService', function () {
 });
 ```
 
-You can also do `yo angular:factory`, `yo angular:provider`, `yo angular:value`, and `yo angular:constant` for other types of services.
+You can also do `yo angular-wsi:factory`, `yo angular-wsi:provider`, `yo angular-wsi:value`, and `yo angular-wsi:constant` for other types of services.
 
 ### Decorator
 Generates an AngularJS service decorator.
 
 Example:
 ```bash
-yo angular:decorator serviceName
+yo angular-wsi:decorator serviceName
 ```
 
 Produces `app/scripts/decorators/serviceNameDecorator.js`:
@@ -180,7 +179,7 @@ For generators that output scripts, the `--coffee` option will output CoffeeScri
 
 For example:
 ```bash
-yo angular:controller user --coffee
+yo angular-wsi:controller user --coffee
 ```
 
 Produces `app/scripts/controller/user.coffee`:
@@ -199,7 +198,7 @@ By default, generators produce unannotated code. Without annotations, AngularJS'
 
 #### Example
 ```bash
-yo angular:controller user --minsafe
+yo angular-wsi:controller user --minsafe
 ```
 
 Produces `app/controller/user.js`:
@@ -239,7 +238,7 @@ By default, new scripts are added to the index.html file. However, this may not 
 
 To skip adding them to the index, pass in the skip-add argument:
 ```bash
-yo angular:service serviceName --skip-add
+yo angular-wsi:service serviceName --skip-add
 ```
 
 ## Bower Components

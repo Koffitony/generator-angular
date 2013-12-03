@@ -1,34 +1,27 @@
- <!-- main.html -->
- <div class="alert alert-warning"><strong>Outdated content!</strong> This content hasn't been updateded for some time and might be outdated.</div>
-
-                <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Competition</a></li>
-                    <li class="active">Assessment Criteria</li>
-                </ol>
-
-                <div class="page-header">
-                    <h1>Objective &amp; Subjective Assessment</h1>
-                </div>
-
-                <p>There are two different types of assessment:  Objective and Subjective.</p>
-                
-                <p>Objective assessments are those for which an exact mark can be awarded according to a precise rule. 
-                The competitor is either awarded the mark or is not. Thus the award for an objective Aspect is either 
-                a mark as specified within the Aspect definition or zero. In some cases it is possible to vary the mark 
-                award on an exact formula - for example where a tolerance is given it would be acceptable to award part 
-                marks at one level of achieved tolerance and higher marks for reaching a better tolerance level. This 
-                information can be applied to an 'Aspect' by using additional lines (Add) of marking instructions.</p>
-
-                <p>Subjective assessments are those where the mark awarded depends on the personal opinion of a group 
-                of judges. This type of marking usually involves an assessment of personal skill or creative ability. 
-                It is a form of Aesthetic assessment. The judges, individually and without discussion with their 
-                colleagues, decide the scores they will award for each Aspect of Criterion (on a scale of 1 to 10). 
-                The marking group then get together as a team and every judge in the group displays, at a suitable 
-                signal, a score card according to his/her opinion of the quality of the item. The team must mark ALL 
-                competitors for the aspects they are assessing.</p>
-                
+<div class="hero-unit">
+  <h1>main.html</h1>
+  <ul>
+      <li ng-repeat="thing in awesomeThings"><a href="#/hello/{{thing}}">{{thing}}</a></li>
+  </ul>
+  <p>installed.</p>
 </div>
+
+<div>
+    <p>See these for help getting started</p>
+    <ul>
+        <li><a href='http://angular-ui.github.io/bootstrap/'>UI-Bootstrap wrapper</a></li>
+        <li><a href='https://github.com/PascalPrecht/angular-translate'>i18n module</a></li>
+        <li><a href='https://github.com/PascalPrecht/bower-angular-translate-loader-static-files'>i18n static file loader (for ui elements)</a></li>
+    </ul>
+    <p>If you need i18n support, run this</p>
+    <code>
+        $ bower install angular-translate --save<br />
+        $ bower instal bower install angular-translate-loader-static-files --save
+    </code>
+    <p>&nbsp;</p>
+</div>
+
+
 
 
         <div class="row">
@@ -41,13 +34,20 @@
                     <li class="active">Assessment Criteria</li>
                 </ol>
 
-                <p class="pull-right">
-                    <a href="#" class="btn btn-success">Add new</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                    <a href="#" class="btn btn-default">Duplicate</a>
-                </p>
+                <div class="row">
 
-                <h1>Assessment Criteria</h1>
+                    <div class="col-md-6">
+                        <h1>Assessment Criteria</h1>
+                    </div>
+
+                    <div class="col-md-6">
+                        <p class="pull-right">
+                            <a href="#" class="btn btn-success">Add new</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="#" class="btn btn-default">Duplicate</a>
+                        </p>
+                    </div>
+                </div>
 
                 <hr />
 
@@ -281,7 +281,37 @@
         <div class="row">
 
             <div class="col-md-9 col-md-push-3">
+
+                <div class="alert alert-warning"><strong>Outdated content!</strong> This content hasn't been updateded for some time and might be outdated.</div>
+
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Competition</a></li>
+                    <li class="active">Assessment Criteria</li>
+                </ol>
+
+                <div class="page-header">
+                    <h1>Objective &amp; Subjective Assessment</h1>
+                </div>
+
+                <p>There are two different types of assessment:  Objective and Subjective.</p>
                 
+                <p>Objective assessments are those for which an exact mark can be awarded according to a precise rule. 
+                The competitor is either awarded the mark or is not. Thus the award for an objective Aspect is either 
+                a mark as specified within the Aspect definition or zero. In some cases it is possible to vary the mark 
+                award on an exact formula - for example where a tolerance is given it would be acceptable to award part 
+                marks at one level of achieved tolerance and higher marks for reaching a better tolerance level. This 
+                information can be applied to an 'Aspect' by using additional lines (Add) of marking instructions.</p>
+
+                <p>Subjective assessments are those where the mark awarded depends on the personal opinion of a group 
+                of judges. This type of marking usually involves an assessment of personal skill or creative ability. 
+                It is a form of Aesthetic assessment. The judges, individually and without discussion with their 
+                colleagues, decide the scores they will award for each Aspect of Criterion (on a scale of 1 to 10). 
+                The marking group then get together as a team and every judge in the group displays, at a suitable 
+                signal, a score card according to his/her opinion of the quality of the item. The team must mark ALL 
+                competitors for the aspects they are assessing.</p>
+                
+            </div>
             <div class="col-md-3 col-md-pull-9 sidebar" role="navigation">
 
                 <hr class="visible-xs visible-sm" />
@@ -312,5 +342,4 @@
                 </div>
             </div>
         </div>
-
-        <!-- //main.html -->
+        <div>
