@@ -48,7 +48,12 @@ Sets up a new AngularJS app, generating all the boilerplate you need to get star
 
 Example:
 ```bash
-yo angular
+yo angular-wsi
+```
+
+Example (safe for minimize):
+```bash
+yo angular-wsi --minsafe
 ```
 
 ### Route
